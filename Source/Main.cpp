@@ -11,23 +11,19 @@
 
 struct Person
 {
+    int age = 0;
+    int heightInInches = 0;
+    int distanceTraveled = 0;
+    float hairLength = 0.f;
+    float GPA = 0.f;
+    unsigned int SATscore = 0;
+    
     Person();
-    int age, heightInInches, distanceTraveled;
-    float hairLength, GPA;
-    unsigned int SATscore;
     
 //    int run(int howFast, bool startWithLeftFoot);
 };
 
-Person::Person()
-{
-    age = 0;
-    heightInInches = 0;
-    distanceTraveled = 0;
-    hairLength = 0;
-    GPA = 0;
-    SATscore = 0;
-}
+Person::Person() {}
 
 //==============================================================================
 class HelloWorldApplication  : public juce::JUCEApplication
