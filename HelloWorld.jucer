@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="ocZGNG" name="HelloWorld" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" displaySplashScreen="1">
   <MAINGROUP id="xErBBT" name="HelloWorld">
     <GROUP id="{71199DF5-E604-FB97-BE7F-4E1B70301ED0}" name="Source">
       <FILE id="KhGeny" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
