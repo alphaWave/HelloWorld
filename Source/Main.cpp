@@ -9,6 +9,8 @@
 #include <JuceHeader.h>
 #include "MainComponent.h"
 
+using namespace juce;
+
 struct Person
 {
     int age = 0;
@@ -17,13 +19,27 @@ struct Person
     float hairLength = 0.f;
     float GPA = 0.f;
     unsigned int SATscore = 0;
+    String name;
     
-    Person();
-    
-//    int run(int howFast, bool startWithLeftFoot);
+    Person(String personsName) : name(personsName)
+    {
+        DBG("Person Ctor: " + name);
+    }
+    // all member-vars that can be default-constructed get constructed, THEN the constructor gets called.
+    // IF a member-var cannot be default-constructed, then that member-var MUST be initialized in the Ctor's member initializer list.
+    ~Person()
+    {
+        DBG("Person Dtor: " + name);
+    };
+    // destructor gets called, THEN the member variables get destroyed.
 };
 
-Person::Person() {}
+void personFunction()
+{
+    Person p{"p"};
+}
+
+//Person::Person() {}
 
 struct IntValue
 {
@@ -88,6 +104,24 @@ void whileTest()
     }
 }
 
+struct Family
+{
+    Family() { DBG("Family Ctor"); };
+    ~Family() { DBG("Family Dtor"); };
+    
+    Person mom{"mom"};
+    Person dad{"dad"};
+    Person child1{"c1"};
+    Person child2{"c2"};
+};
+
+void familyFunction()
+{
+    Family family;
+}
+
+
+
 //==============================================================================
 class HelloWorldApplication  : public juce::JUCEApplication
 {
@@ -106,6 +140,7 @@ public:
 //        functionC();
 //        whileTest();
         
+        familyFunction();
         mainWindow.reset (new MainWindow (getApplicationName()));
     }
 
