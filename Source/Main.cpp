@@ -25,6 +25,69 @@ struct Person
 
 Person::Person() {}
 
+struct IntValue
+{
+    IntValue();
+    ~IntValue();
+    int value;
+};
+
+IntValue::IntValue()
+{
+    DBG("IntValue constructor");
+}
+
+IntValue::~IntValue()
+{
+    DBG("IntValue destructor");
+}
+
+int functionA(int val)
+{
+    IntValue a;
+    a.value = 5;
+    return val * 2 + a.value;
+}
+
+void functionB()
+{
+    IntValue val;
+    val.value = functionA(3);
+    val.value *= 4;
+}
+
+void functionC()
+{
+    int i = 0;
+    while (i < 3)
+    {
+        IntValue a;
+        a.value += i;
+        i += 1;
+    }
+    
+//    for (int i = 0; i < 3; ++i)
+    {
+        int i = 0;
+        while (i < 3)
+        {
+            IntValue a;
+            a.value += i;
+            i += 1;
+        }
+    }
+}
+
+void whileTest()
+{
+    bool b = true;
+    while (b)
+    {
+        b = false;
+        DBG("b is " << (b ? "true" : "false"));
+    }
+}
+
 //==============================================================================
 class HelloWorldApplication  : public juce::JUCEApplication
 {
@@ -40,8 +103,8 @@ public:
     void initialise (const juce::String& commandLine) override
     {
         // This method is where you should put your application's initialisation code..
-        Person person;
-        DBG(person.age);
+//        functionC();
+//        whileTest();
         
         mainWindow.reset (new MainWindow (getApplicationName()));
     }
